@@ -49,8 +49,9 @@ Ensure you have the following installed:
 - `pip` package manager
 
 ### Clone the Repository
-git clone https://github.com/idaraabasiudoh/American-Sign-Language-ASL-Detection.git 
-cd ASL-Detection-System
+```git clone https://github.com/idaraabasiudoh/American-Sign-Language-ASL-Detection.git ```
+
+```cd ASL-Detection-System```
 
 ### Install Dependencies
 pip install tensorflow opencv-python opencv-python-headless mediapipe numpy matplotlib

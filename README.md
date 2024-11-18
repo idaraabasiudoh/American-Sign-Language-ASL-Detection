@@ -1,6 +1,6 @@
 # American Sign Language (ASL) Recognition System
 
-This repository contains the code and resources for an **American Sign Language (ASL) Recognition System**, which leverages machine learning to recognize ASL gestures in real-time. The project consists of data preprocessing, model training, and deployment for real-time ASL recognition via a graphical user interface.
+This project contains the code and resources for an **American Sign Language (ASL) Recognition System**, which uses computer vision to recognize ASL gestures in real-time. The project consists of data preprocessing, model training, and deployment for real-time ASL recognition via a graphical user interface.
 
 ## Table of Contents
 - [Overview](#overview)

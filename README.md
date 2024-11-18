@@ -1,123 +1,111 @@
-# 📘 American Sign Language Detection and Translation System
+# American Sign Language (ASL) Recognition System
 
-## 📝 Project Description
-The **American Sign Language Detection and Translation System** is an AI-powered project designed to translate American Sign Language (ASL) gestures into text in real-time using computer vision and deep learning. The system leverages a Convolutional Neural Network (CNN) model trained on a dataset of ASL gestures to accurately recognize and translate signs into readable text.
+This repository contains the code and resources for an **American Sign Language (ASL) Recognition System**, which leverages machine learning to recognize ASL gestures in real-time. The project consists of data preprocessing, model training, and deployment for real-time ASL recognition via a graphical user interface.
 
-The goal of this project is to bridge the communication gap for the deaf and hard-of-hearing community by providing a real-time translation tool that can facilitate better interactions.
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [File Structure](#file-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Acknowledgments](#acknowledgments)
 
----
+## Overview
 
-## 📂 Table of Contents
-- Project Features
-- Tech Stack
-- Installation
-- Usage
-- Dataset
-- Model Architecture
-- Future Enhancements
-- Contributing
-- License
+The ASL Recognition System uses deep learning to identify and classify ASL gestures from real-time video input. The model supports letters A-Z and common actions like "delete," "nothing," and "space." The solution provides a complete pipeline, from data preprocessing to model training and deployment, making it easy to build and extend.
 
----
+## Features
 
-## 🚀 Project Features
-- **Real-time ASL Detection**: Captures video from a webcam and detects ASL gestures.
-- **Text Translation**: Converts detected gestures into corresponding text.
-- **Scalable and Extendable**: Built using Python and TensorFlow, allowing easy modifications and upgrades.
-- **Pre-trained Model**: Includes a pre-trained CNN model for efficient ASL recognition.
+- **Data Preprocessing**: Efficient scripts to preprocess video/image data for model training.
+- **Model Training**: Robust training with a TensorFlow-based model saved in `asl_model.h5`.
+- **Real-Time Detection**: Real-time gesture recognition using a GUI-based system.
+- **Extensibility**: Modular structure for easy integration and updates.
 
----
+## File Structure
 
-## 💻 Tech Stack
-- **Languages**: Python
-- **Libraries/Frameworks**: 
-  - TensorFlow/Keras
-  - OpenCV
-  - MediaPipe (for hand detection)
-  - NumPy
-  - Matplotlib
-
----
-
-## ⚙️ Installation
-
-To get started, follow these instructions to set up the project on your local machine.
-
-### Prerequisites
-Ensure you have the following installed:
-- Python 3.x
-- `pip` package manager
-
-### Clone the Repository
-```git clone https://github.com/idaraabasiudoh/American-Sign-Language-ASL-Detection.git ```
-
-```cd ASL-Detection-System```
-
-### Install Dependencies
-pip install tensorflow opencv-python opencv-python-headless mediapipe numpy matplotlib
-
----
-
-## 🛠 Usage
-
-### Step 1: Preprocess the Dataset
-python data_preprocessing.py
-
-### Step 2: Train the Model
-python model_training.py
-
-### Step 3: Real-Time ASL Detection
-To run the real-time detection using your webcam:
-python real_time_detection.py
-
-The system will open a video window where you can perform ASL gestures in front of the camera, and the corresponding letter will be displayed on the screen.
-
----
-
-## 📊 Dataset
-The model is trained using the [ASL Alphabet Dataset](https://www.kaggle.com/grassknoted/asl-alphabet), which includes images of hands representing the 26 letters of the English alphabet. The dataset has been preprocessed and split into training, validation, and test sets.
-
-### Data Preprocessing Steps
-- Grayscale conversion
-- Image resizing to 64x64 pixels
-- Normalization of pixel values to [0, 1]
-- Data augmentation for robust model training
-
----
-
-## 🧠 Model Architecture
-The model is a Convolutional Neural Network (CNN) with the following layers:
-- **Conv2D + MaxPooling**: Feature extraction layers.
-- **Flatten**: Converts the 2D feature maps into a 1D feature vector.
-- **Dense**: Fully connected layers for classification.
-- **Dropout**: Prevents overfitting.
-
-```python
-model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 1)),
-    MaxPooling2D((2, 2)),
-    Conv2D(64, (3, 3), activation='relu'),
-    MaxPooling2D((2, 2)),
-    Flatten(),
-    Dense(128, activation='relu'),
-    Dropout(0.5),
-    Dense(26, activation='softmax')
-])
+```plaintext
+├── asl_model.h5                # Trained model
+├── labels.txt                  # Labels for ASL gestures
+├── data_preprocessing.py       # Script for data preprocessing
+├── model_transform.py          # Helper functions for model transformations
+├── model_training.py           # Model training script
+├── test.py                     # Script for testing the model
+├── real_time_detection.py      # Real-time detection implementation
+├── model_GUI.py                # GUI for gesture recognition
+├── LICENSE                     # License information
 ```
 
----
+## Getting Started
 
-## 🤝 Contributing
-Contributions are welcome! To contribute:
-1. Fork the repository.
-2. Create a new branch (`feature-branch`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a Pull Request.
+### Prerequisites
+- Python 3.7 or higher
+- TensorFlow 2.x
+- OpenCV
+- Tkinter (for GUI)
+- Other Python dependencies (listed in `requirements.txt`)
 
----
+### Installation
 
-## 📝 License
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/idaraabasiudoh/asl-recognition-system.git
+   cd asl-recognition-system
+   ```
 
----
+2. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Download any necessary datasets for training and preprocessing.
+
+## Usage
+
+### 1. Preprocess Data
+Run the preprocessing script to prepare your dataset:
+```bash
+python data_preprocessing.py
+```
+
+### 2. Train the Model
+Train the ASL recognition model using:
+```bash
+python model_training.py
+```
+
+### 3. Test the Model
+Evaluate the model performance:
+```bash
+python test.py
+```
+
+### 4. Real-Time Recognition
+Launch the GUI for real-time gesture detection:
+```bash
+python model_GUI.py
+```
+
+## Labels
+
+The `labels.txt` file contains the gesture classes:
+```
+A, B, C, ..., Z, delete, nothing, space
+```
+
+## License
+
+This project is licensed under the terms of the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit a pull request with your enhancements.
+
+## Acknowledgments
+
+- TensorFlow and OpenCV for their powerful frameworks.
+- ASL communities for inspiration and datasets.
+- Open-source contributors for maintaining useful libraries.
+
+**Author**: [idaraabasiudoh](https://github.com/idaraabasiudoh)
